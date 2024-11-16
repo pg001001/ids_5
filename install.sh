@@ -218,7 +218,7 @@ fi
 SUBFINDER_CONFIG_PATH="$HOME/.config/subfinder/config.yaml"
 
 # Create the directory if it doesn't exist
-mkdir -p "$HOME/.config/subfinder/provider-config.yaml"
+mkdir -p "$HOME/.config/subfinder/"
 
 # Configuration content
 SUBFINDER_CONFIG_CONTENT=$(cat <<EOF
