@@ -24,7 +24,7 @@ scan_information() {
     
     # api spicific endpoints
     # katana -mdc "contains(endpoint,"api")" -jc -u ${domain} >> "${base_dir}/information/api_endpoints.txt"
-    grep -r --color=always -i -E "api|\.env|\.config|\.ini" "${base_dir}/allurls.txt" >> "${base_dir}/information/api_endpoints.txt"
+    grep -r --color=always -i -E "api|\.env|\.config" "${base_dir}/allurls.txt" >> "${base_dir}/information/api_endpoints.txt"
 
     # emails
     grep -r --color=always -i -E "@" "${base_dir}/allurls.txt" >> "${base_dir}/information/emails.txt"
