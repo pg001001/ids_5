@@ -34,9 +34,6 @@ scan_information() {
     # billngs
     grep -r --color=always -i -E "invoice|billing|payment|receipt|bill|purchase|order|checkout|transaction" "${base_dir}/allurls.txt" >> "${base_dir}/information/pay.txt"
 
-    # links related urls - urls which redirect to different urls showcasing information 
-    grep -r --color=always -i -E "link|crm" "${base_dir}/allurls.txt" >> "${base_dir}/information/links.txt"
-
     # credentials
     grep -r --color=always -i -E "register:|signin:|signup:|login:" "${base_dir}/allurls.txt" >> "${base_dir}/information/credentials.txt"
 
