@@ -19,8 +19,8 @@ scan_information() {
     cat "${base_dir}/allurls.txt" | grep "\.js$"  "${base_dir}/allurls.txt" | httpx -mc 200 | tee "${base_dir}/js.txt"
 
     # sensitive information in downloaded JavaScript files
-    # echo "Searching for sensitive information in JavaScript files..."
-    # grep -r --color=always -i -E "api_key|apikey|aws" "${base_dir}/js_files/" | tee "${base_dir}/information/js.txt"
+    echo "Searching for sensitive information in JavaScript files..."
+    grep -r --color=always -i -E "api_key|apikey|aws" "${base_dir}/js_files/" | tee "${base_dir}/information/js.txt"
     
     # api spicific endpoints
     # katana -mdc "contains(endpoint,"api")" -jc -u ${domain} >> "${base_dir}/information/api_endpoints.txt"
@@ -39,18 +39,14 @@ scan_information() {
 
     # search sensitive files 
     grep -r --color=always -i -E "\.sql|\.zip|\.tar.gz|\.tgz|\.bak|\.7z|\.rar" "${base_dir}/allurls.txt" >> "${base_dir}/information/files.txt"
-    grep -r --color=always -i -E "\.pdf" "${base_dir}/allurls.txt" >> "${base_dir}/information/pdfs_file.txt"
+    grep -r --color=always -i -E "\.pdf" "${base_dir}/allurls.txt" >> "${base_dir}/information/pdfs.txt"
     grep -r --color=always -i -E ".\xlsx|\.doc|\.docx|\.pptx|\.xls" "${base_dir}/allurls.txt" >> "${base_dir}/information/documents.txt"
     
-    # rm -r "${base_dir}/js_files/"
-    echo ${domain} | gauplus -subs | grep -i "\.xlsx"  "/root/main/${base_dir}/allurls.txt" >> "${base_dir}/information/xlsx.txt"
-    echo ${domain} | gauplus -subs | grep -i "\.pdf"  "/root/main/${base_dir}/allurls.txt" >> "${base_dir}/information/pdf_2.txt"
-
     # admin panels
     grep -r --color=always -i -E "admin" "${base_dir}/subdomains.txt" >> "${base_dir}/information/admin_panels.txt"
 
     # get parameters 
-    gau -subs ${domain} | grep -oP "(\?|\&)\w+" | tr -d "?|&" | sort -u | tee params.txt
+    # gau -subs ${domain} | grep -oP "(\?|\&)\w+" | tr -d "?|&" | sort -u | tee params.txt
 
 
 

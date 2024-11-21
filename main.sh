@@ -29,6 +29,6 @@ echo "Starting JavaScript file analysis..."
 
 # Run files scanning 
 echo "Starting files scanning..."
-./sensitive_file_find.sh "$domain"
+# ./sensitive_file_find.sh "$domain"
 
 echo "All tasks completed for ${domain}. Results are stored in the respective directories."
